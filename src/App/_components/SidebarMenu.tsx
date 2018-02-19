@@ -1,33 +1,57 @@
 import * as React from 'react';
-import '../_styles/SidebarMenu.css';
 
-// import { Nav } from 'office-ui-fabric-react/lib/Nav';
-// import { INavLinkGroup } from 'office-ui-fabric-react/lib/Nav';
+import { Nav } from 'office-ui-fabric-react/lib/Nav';
 
-// export type SidebarMenuState = {
-//     groups: string;
-//     expanded: string;
-//     collapsed: string;
-// }
-function SidebarMenu() {
-    return (
-        <div className="sidenav">
-            <a href="/login">Login</a>
-            <a href="/Register">Register</a>
-            <a href="#clients">Clients</a>
-            <a href="#contact">Contact</a>
-        </div>
-    );
+class SidebarMenu extends React.Component {
+    
+    _onClickHandler2(e: React.MouseEvent<HTMLElement>) {
+        return false;
+    }
+
+    render() {
+        return (
+            <div className='ms-NavExample-LeftPane'>
+                <Nav
+                    groups={
+                        [
+                            {
+                                links:
+                                [
+                                    {
+                                        name: 'Home',
+                                        url: '/',
+                                        links: [{
+                                            name: 'Login',
+                                            url: '/login',
+                                            key: 'key1'
+                                            },
+                                            {
+                                            name: 'Register',
+                                            url: '/Register',
+                                            key: 'key2'
+                                        }],
+                                        isExpanded: true
+                                    },
+                                    { name: 'Employees', url: '/employees', key: 'key3', isExpanded: true },
+                                    { name: 'Pages', url: 'http://msn.com', key: 'key4' },
+                                    {
+                                        name: 'Edit',
+                                        url: 'http://cnn.com',
+                                        onClick: this._onClickHandler2,
+                                        icon: 'Edit',
+                                        key: 'key8'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                    expandedStateText={'expanded'}
+                    collapsedStateText={'collapsed'}
+                    selectedKey={'key3'}
+                />
+            </div>
+        );
+    }
 }
-
-
-// export const SidebarMenu: React.SFC<SidebarMenuState> = ({groups, expanded = "collapsed", collapsed = "collapsed"}) => (
-//     <div className="SidebarMenu">
-//         {/* <Nav groups={groups} expandedStateText={expanded} collapsedStateText={collapsed} /> */}
-//     </div>
-// )
-
-
-
 
 export default SidebarMenu

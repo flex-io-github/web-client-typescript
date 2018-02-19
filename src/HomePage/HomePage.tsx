@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { watchCreateLesson } from '../_saga/sagas';
+// import { watchCreateLesson } from '../_saga/sagas';
 
-// import { userActions } from '../_actions/user.actions';
+import { userActions } from '../_actions/user.actions';
 
 export interface HomePageProps {
     dispatch: (action: any) => void;
@@ -17,23 +17,23 @@ class HomePage extends React.Component<HomePageProps, {}> {
     }
 
     componentDidMount() {
-        // this.props.dispatch(userActions.getAll())
-        watchCreateLesson()
+        this.props.dispatch(userActions.getAll())
+        // watchCreateLesson()
     };
 
-    // handleDeleteUser(id: any) {
-    //     this.props.dispatch(userActions.delete(id));
-    // };
+    handleDeleteUser(id: any) {
+        this.props.dispatch(userActions.delete(id));
+    };
 
     render() {
-        // const { user, users } = this.props;
+        const { user, users } = this.props;
             
         return (
             <div className="col-md-6 col-md-offset-3">
-                {/* <h1>Hi {user.username}!</h1> */}
+                <h1>Hi {user.username}!</h1>
                 <p>You're logged in with React and ASP.NET Core 2.0!!</p>
                 <h3>All registered users:</h3>
-                {/* {users.loading && <em>Loading users...</em>}
+                {users.loading && <em>Loading users...</em>}
                 {users.error && <span className="text-danger">ERROR: {users.error}</span>}
                 {users.items &&
                     <ul>
@@ -49,7 +49,7 @@ class HomePage extends React.Component<HomePageProps, {}> {
                             </li>
                         )}
                     </ul>
-                } */}
+                }
                 <p>
                     <Link to="/login">Logout</Link>
                 </p>

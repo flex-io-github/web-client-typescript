@@ -12,7 +12,8 @@ import SidebarMenu from './_components/SidebarMenu';
 import LoginPage from '../LoginPage/LoginPage';
 import HomePage from '../HomePage/HomePage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import UserEditPage from '../UserEditPage/UserEditPage';
+import EmployeePage from '../EmployeePage/EmployeePage';
+import EmployeeForm from '../EmployeePage/EmployeeForm';
 
 export interface AppProps extends React.Props<any> {
     dispatch: (action: any) => void;
@@ -55,7 +56,19 @@ class App extends React.Component<AppProps, {}> {
                                     />
                                     <Route
                                         path={"/user/:UserId"}
-                                        component={UserEditPage}
+                                        component={RegisterPage}
+                                    />
+                                    <Route
+                                        path={"/employees"}
+                                        component={EmployeePage}
+                                    />
+                                    <Route
+                                        path={"/employee/new"}
+                                        component={EmployeeForm}
+                                    />
+                                    <Route
+                                        path={"/employee/edit/:EmployeeId"}
+                                        component={EmployeeForm}
                                     />
                                 </div>
                             </Router>
