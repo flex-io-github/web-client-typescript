@@ -5,13 +5,15 @@ import { registration } from './registration.reducer';
 import { users } from './users.reducer';
 import { alert } from './alert.reducer';
 import { employees } from './employee.reducers';
+import { files } from './fileUpload.reducer';
 
 const rootReducer = combineReducers({
   authentication,
   registration,
   users,
   alert,
-  employees
+  employees,
+  files
 });
 
 export default rootReducer;

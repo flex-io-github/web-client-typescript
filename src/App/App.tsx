@@ -14,6 +14,7 @@ import HomePage from '../HomePage/HomePage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EmployeePage from '../EmployeePage/EmployeePage';
 import EmployeeForm from '../EmployeePage/EmployeeForm';
+import FileUploadPage from '../FileUploadPage/FileUploadPage';
 
 export interface AppProps extends React.Props<any> {
     dispatch: (action: any) => void;
@@ -37,7 +38,7 @@ class App extends React.Component<AppProps, {}> {
                     <NavBar />
                 </div>
                 <div className='body'>
-                    <div className='content'>
+                    <div className='ui container'>
                         <div className='container'>
                             <Router history={history}>
                                 <div>
@@ -69,6 +70,11 @@ class App extends React.Component<AppProps, {}> {
                                     <Route
                                         path={"/employee/edit/:EmployeeId"}
                                         component={EmployeeForm}
+                                    />
+
+                                    <Route
+                                        path={"/upload"}
+                                        component={FileUploadPage}
                                     />
                                 </div>
                             </Router>
